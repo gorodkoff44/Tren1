@@ -24,6 +24,7 @@ namespace Tren1_Gorodkov
         public HomePage()
         {
             InitializeComponent();
+            
             LVServices.ItemsSource = _context.Service.ToList();
         }
 

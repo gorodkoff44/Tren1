@@ -25,9 +25,7 @@ namespace Tren1_Gorodkov
         {
             InitializeComponent();
             if (selectedService != null)
-            {
                 _currentService = selectedService;
-            }
             DataContext = _currentService;
         }
 
@@ -35,6 +33,7 @@ namespace Tren1_Gorodkov
         {
             try
             {
+                if(_currentService.ID==0)
                 Tren1Entities.GetContext().Service.Add(_currentService);
             }
             catch

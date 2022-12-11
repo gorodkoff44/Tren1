@@ -52,7 +52,7 @@
                                         <TextBlock Text="{Binding DurationInSeconds}" FontFamily="Tahoma" FontSize="14" />
                                         <TextBlock Text=" минут" FontFamily="Tahoma" FontSize="14"/>
                                     </WrapPanel>
-                                    <TextBlock Text="{Binding Discount, StringFormat=* скидка {0}%}" FontFamily="Tahoma" FontSize="14" />
+                                    <TextBlock x:Name="DiscountTextBox" Text="{Binding Discount, StringFormat=* скидка {0}%}" FontFamily="Tahoma" FontSize="14" />
                                 </StackPanel>
                             <WrapPanel Grid.Row="2" Grid.Column="1" Margin="0 15 0 0">
                                     <Button x:Name="edit" Margin="10 0 0 0" Width="120" Height="30" Content="Редактировать" Click="Edit_Click" FontFamily="Tahoma" FontSize="14" Background="#ff4a6d" Foreground="White"  />
