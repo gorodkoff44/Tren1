@@ -37,14 +37,19 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                                <StackPanel>
+                                <StackPanel VerticalAlignment="Center">
                                 <TextBlock Text="{Binding Title}" />
-                                <TextBlock Text="{Binding Cost, StringFormat=0.}" />
+                                    <WrapPanel>
+                                        <TextBlock Text="{Binding Cost, StringFormat=0.}" />
+                                    <TextBlock Text=" рублей за "/>
+                                        <TextBlock Text="{Binding DurationInSeconds}" />
+                                        <TextBlock Text=" минут"/>
+                                    </WrapPanel>
                                     <TextBlock Text="{Binding Discount, StringFormat=* скидка {0}%}" />
                                 </StackPanel>
                             <WrapPanel Grid.Row="2" Grid.Column="1">
-                                    <Button x:Name="add" Content="Добавить" />
-                                    <Button x:Name="del" Content="Удалить" />
+                                    <Button x:Name="edit" Margin="5" Width="100" Content="Редактировать" Click="edit_Click" />
+                                    <Button x:Name="del" Margin="5" Width="80" Content="Удалить" Click="del_Click" />
                                 </WrapPanel>
                             </Grid>
                         </Grid>

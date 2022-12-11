@@ -20,11 +20,44 @@ namespace Tren1_Gorodkov
     /// </summary>
     public partial class HomePage : Page
     {
-        private SalonEntities _context = new SalonEntities();
+        private Tren1Entities _context = new Tren1Entities();
         public HomePage()
         {
             InitializeComponent();
             LVServices.ItemsSource = _context.Service.ToList();
+        }
+
+        private void add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void del_Click(object sender, RoutedEventArgs e)
+        {
+            //if (LVServices.SelectedItem == null)
+            //{
+            //    MessageBox.Show("Не выбран объект для удаления", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
+
+            try
+            {
+                //_context.Service.Remove((Service)LVServices.SelectedItem);
+                _context.Service.Remove((sender as Button).DataContext as Service);
+               // sender as Button).DataContext as Sklad
+                _context.SaveChanges();
+                LVServices.ItemsSource = _context.Service.ToList();
+
+            }
+            catch
+            {
+                MessageBox.Show("Что то пошло не так", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void edit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
