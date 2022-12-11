@@ -27,27 +27,19 @@ namespace Tren1_Gorodkov
             LVServices.ItemsSource = _context.Service.ToList();
         }
 
-        private void add_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddEditServicePage(null));
         }
 
-        private void del_Click(object sender, RoutedEventArgs e)
+        private void Del_Click(object sender, RoutedEventArgs e)
         {
-            //if (LVServices.SelectedItem == null)
-            //{
-            //    MessageBox.Show("Не выбран объект для удаления", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    return;
-            //}
-
             try
             {
-                //_context.Service.Remove((Service)LVServices.SelectedItem);
                 _context.Service.Remove((sender as Button).DataContext as Service);
-               // sender as Button).DataContext as Sklad
                 _context.SaveChanges();
                 LVServices.ItemsSource = _context.Service.ToList();
-
+                MessageBox.Show("Сервис был удален?", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch
             {
@@ -55,9 +47,18 @@ namespace Tren1_Gorodkov
             }
         }
 
-        private void edit_Click(object sender, RoutedEventArgs e)
+        private void Edit_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new AddEditServicePage((sender as Button).DataContext as Service));
+        }
 
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var _currentService = _context.Service.ToList(); //Поиск
+            {
+                _currentService = _currentService.FindAll(x => x.Title.Contains(SearchBox.Text));
+                LVServices.ItemsSource = _currentService;
+            }
         }
     }
 }

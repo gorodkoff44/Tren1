@@ -46,3 +46,5 @@ A:\WPF\Tren1\obj\Debug\Tren1_Gorodkov.csproj.CoreCompileInputs.cache
 A:\WPF\Tren1\obj\Debug\Tren1_Gorodkov.csproj.CopyComplete
 A:\WPF\Tren1\obj\Debug\Tren1_Gorodkov.exe
 A:\WPF\Tren1\obj\Debug\Tren1_Gorodkov.pdb
+A:\WPF\Tren1\obj\Debug\AddEditServicePage.g.cs
+A:\WPF\Tren1\obj\Debug\AddEditServicePage.baml

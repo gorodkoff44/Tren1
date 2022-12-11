@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddEditServicePage.xaml.cs">
+      <DependentUpon>AddEditServicePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs">
       <DependentUpon>SalonModel.tt</DependentUpon>
     </Compile>
@@ -130,6 +133,10 @@
     <Compile Include="Tag.cs">
       <DependentUpon>SalonModel.tt</DependentUpon>
     </Compile>
+    <Page Include="AddEditServicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

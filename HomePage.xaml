@@ -16,14 +16,21 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
+                <RowDefinition Height="45"/>
                 <RowDefinition/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <Grid Grid.ColumnSpan="2">
+            <Grid Grid.ColumnSpan="2" Background="#e1e4ff" VerticalAlignment="Center">
                 <Image HorizontalAlignment="Left" Margin="10 10 10 10" Source="/Услуги салона красоты/beauty_logo.png" />
-                <Label Content="Салон красоты" FontSize="50" HorizontalAlignment="Center" />
+                <Label Content="Салон красоты" FontSize="50" HorizontalAlignment="Center" FontFamily="Tahoma" VerticalAlignment="Center"  />
+            </Grid >
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="#e1e4ff">
+                <WrapPanel VerticalAlignment="Center">
+                    <TextBlock Margin="10 0 10 0" Text="Поиск"  VerticalAlignment="Center" FontFamily="Tahoma" FontSize="14"/>
+                    <TextBox x:Name="SearchBox" VerticalAlignment="Center" FontFamily="Tahoma" FontSize="14" VerticalContentAlignment="Center" Height="30" Width="150" TextChanged="SearchBox_TextChanged" /> 
+                </WrapPanel>
             </Grid>
-            <ListView x:Name="LVServices" Grid.Row="1" Grid.ColumnSpan="2">
+            <ListView x:Name="LVServices" Grid.Row="2" Grid.ColumnSpan="2">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -37,25 +44,28 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                                <StackPanel VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Title}" />
+                                <StackPanel VerticalAlignment="Center" Margin="10 20 0 0">
+                                    <TextBlock Text="{Binding Title}" FontFamily="Tahoma" FontSize="14" />
                                     <WrapPanel>
-                                        <TextBlock Text="{Binding Cost, StringFormat=0.}" />
-                                    <TextBlock Text=" рублей за "/>
-                                        <TextBlock Text="{Binding DurationInSeconds}" />
-                                        <TextBlock Text=" минут"/>
+                                        <TextBlock Text="{Binding Cost, StringFormat=0.}" FontFamily="Tahoma" FontSize="14"/>
+                                        <TextBlock Text=" рублей за " FontFamily="Tahoma" FontSize="14"/>
+                                        <TextBlock Text="{Binding DurationInSeconds}" FontFamily="Tahoma" FontSize="14" />
+                                        <TextBlock Text=" минут" FontFamily="Tahoma" FontSize="14"/>
                                     </WrapPanel>
-                                    <TextBlock Text="{Binding Discount, StringFormat=* скидка {0}%}" />
+                                    <TextBlock Text="{Binding Discount, StringFormat=* скидка {0}%}" FontFamily="Tahoma" FontSize="14" />
                                 </StackPanel>
-                            <WrapPanel Grid.Row="2" Grid.Column="1">
-                                    <Button x:Name="edit" Margin="5" Width="100" Content="Редактировать" Click="edit_Click" />
-                                    <Button x:Name="del" Margin="5" Width="80" Content="Удалить" Click="del_Click" />
+                            <WrapPanel Grid.Row="2" Grid.Column="1" Margin="0 15 0 0">
+                                    <Button x:Name="edit" Margin="10 0 0 0" Width="120" Height="30" Content="Редактировать" Click="Edit_Click" FontFamily="Tahoma" FontSize="14" Background="#ff4a6d" Foreground="White"  />
+                                    <Button x:Name="del" Margin="5" Width="80" Height="30" Content="Удалить" Click="Del_Click" FontFamily="Tahoma" FontSize="14" Background="#ff4a6d" Foreground="White" />
                                 </WrapPanel>
                             </Grid>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Grid Grid.Row="3"  Background="#e1e4ff" Grid.ColumnSpan="2">
+                <Button x:Name="AddService" Content="Добавить" Click="Add_Click"  Width="100" Height="30" Background="#ff4a6d" Foreground="White" />
+            </Grid>
         </Grid>
     </Grid>
 </Page>
