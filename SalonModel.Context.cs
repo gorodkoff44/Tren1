@@ -15,9 +15,16 @@ namespace Tren1_Gorodkov
     
     public partial class SalonEntities : DbContext
     {
+        private static SalonEntities _context = new SalonEntities();
         public SalonEntities()
             : base("name=SalonEntities")
         {
+        }
+        public static SalonEntities GetContext()
+        {
+            if (_context == null)
+                _context = new SalonEntities();
+            return _context;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

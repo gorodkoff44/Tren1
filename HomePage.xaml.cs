@@ -20,11 +20,10 @@ namespace Tren1_Gorodkov
     /// </summary>
     public partial class HomePage : Page
     {
-        private Tren1Entities _context = new Tren1Entities();
+        private SalonEntities _context = new SalonEntities();
         public HomePage()
         {
             InitializeComponent();
-            
             LVServices.ItemsSource = _context.Service.ToList();
         }
 
@@ -40,7 +39,7 @@ namespace Tren1_Gorodkov
                 _context.Service.Remove((sender as Button).DataContext as Service);
                 _context.SaveChanges();
                 LVServices.ItemsSource = _context.Service.ToList();
-                MessageBox.Show("Сервис был удален?", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Сервис был удален", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch
             {

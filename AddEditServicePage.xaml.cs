@@ -34,7 +34,7 @@ namespace Tren1_Gorodkov
             try
             {
                 if(_currentService.ID==0)
-                Tren1Entities.GetContext().Service.Add(_currentService);
+                    SalonEntities.GetContext().Service.Add(_currentService);
             }
             catch
             {
@@ -42,7 +42,7 @@ namespace Tren1_Gorodkov
             }
             try
             {
-                Tren1Entities.GetContext().SaveChanges();
+                SalonEntities.GetContext().SaveChanges();
                 MessageBox.Show("Сохранено успешно", "Сохранение", MessageBoxButton.OK, MessageBoxImage.Information);
                 NavigationService.GoBack();
             }
